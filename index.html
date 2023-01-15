@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess number</title>
+</head>
+<style>
+    #reset{
+        background-color: #1c311c; /* Green */
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 5px 5px 20px #1c4523;
+    margin-bottom: 10px;
+    }
+
+    .container{
+        width: 70%;
+        background-color: #4CAF50;
+        margin: 0 auto;
+        text-align: center;
+        box-shadow: 5px 10px 20px #888888;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Guess Number between 0 - 100</h1>
+        <input type="number" id="userNum" class="userNum">
+        <button onclick="myFunction()" id="reset">Submit</button>
+    </div>
+        
+        
+        
+    
+    
+</body>
+
+<script>
+    // function myReset(){
+        let randNum=Math.floor(Math.random()*100);     
+        let container= document.querySelector('.container');   
+        function myFunction(){
+            let userNum = document.querySelector('.userNum').value;
+
+            if (userNum>-1 && userNum<101 && userNum!=''){
+                console.log(randNum);
+                if (userNum==randNum){
+                    var myDiv = document.createElement('div');
+                    myDiv.innerHTML = 'You are right. The number is ' + randNum;
+                    container.append(myDiv);
+
+
+                    var myBtn = document.createElement('a');
+                    myBtn.href='index.html';
+                    myBtn.id='reset';
+                    myBtn.innerHTML = 'restart';
+                    container.append(myBtn);
+                }else if (randNum>userNum){
+                    var myDiv = document.createElement('div');
+                    myDiv.style="color:red"
+                    myDiv.innerHTML ='The Number is greater than ' + userNum;
+                    container.append(myDiv);
+                   
+                }else if (randNum<userNum){
+                    var myDiv = document.createElement('div');
+                    myDiv.style="color:red";
+                    myDiv.innerHTML = 'The Number is less than ' + userNum;
+                    container.append(myDiv);
+                
+            }
+            }else{
+                alert('the number must be between 0 - 100');
+
+            }
+
+        
+ 
+        }
+
+    
+    // }
+    
+
+    
+</script>
+</html>
